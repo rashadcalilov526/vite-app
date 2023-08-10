@@ -1,0 +1,44 @@
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: ms-card
+          uri: lb://MS-CARD
+          predicates:
+            - Path=/cards/**
+
+        - id: ms-cost
+          uri: lb://MS-COST
+          predicates:
+            - Path=/costs/**
+
+        - id: ms-image
+          uri: lb://MS-IMAGE
+          predicates:
+            - Path=/images/**
+
+        - id: ms-ingress
+          uri: lb://MS-INGRESS
+          predicates:
+            - Path=/students/**
+            - Path=/courses/**
+
+        - id: ms-payment
+          uri: lb://MS-PAYMENT
+          predicates:
+            - Path=/payments/**
+
+
+        - id: identity-service
+          uri: lb://IDENTITY-SERVICE
+          predicates:
+            - Path=/auth/**
+
+  application:
+    name: API-GATEWAY
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/

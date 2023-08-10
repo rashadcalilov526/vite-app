@@ -1,0 +1,9 @@
+rootProject.name = 'vite-app'
+include ':ms-cost'
+include ':identity-service'
+include ':service-registery'
+include ':api-gateway'
+include ':ms-ingress'
+include ':ms-image'
+include ':ms-payment'
+
